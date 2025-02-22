@@ -26,18 +26,21 @@ Function.prototype.bind = Function.prototype.bind ||
         c = b.push,
         d = b.splice,
         e = b.join;
-      A.prototype = {
+      a.prototype = {
         add: function (a) {
           this.contains(a) ||
           (c.call(this, a), this.el.className = this.toString())
         },
         contains: function (a) {
-          return - 1 !== this.el.className.indexOf(a)
+          return - 1 != this.el.className.indexOf(a)
+        },
+        item: function (a) {
+          return this[a] ||
+            null
         },
         remove: function (a) {
           if (this.contains(a)) {
-            let b;
-            for (b = 0; b < this.length && this[b] !== a; b++);
+            for (var b = 0; b < this.length && this[b] != a; b++);
             d.call(this, b, 1);
             this.el.className = this.toString()
           }
@@ -231,7 +234,7 @@ function LocalizeElement(a) {
 }
 String.toLocaleString({
   it: {
-    '%game-intro': 'Join the <strong>Carti!</strong>',
+    '%game-intro': 'Join <strong>Carti!</strong>',
     '%restart-button': 'New Game',
     '%keep-playing-button': 'Keep going',
     '%retry-button': 'Retry',
@@ -268,7 +271,7 @@ String.toLocaleString({
     '%p8192': 'Rainbow'
   },
   en: {
-    '%game-intro': 'Join <strong>Carti!</strong>',
+    '%game-intro': 'Join the <strong>Carti!</strong>',
     '%restart-button': 'New Game',
     '%keep-playing-button': 'Keep going',
     '%retry-button': 'Retry',
@@ -558,7 +561,7 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   a.setAttribute('data-url', 'https://2048Carti.org');
   a.setAttribute('data-counturl', 'https://2048Carti.org');
   a.textContent = 'Tweet';
-  var b = Localize('tweet1') + Localize(this.score).toUpperCase() + '", ' + this.points + ' Aura ' + Localize('tweet2');
+  var b = Localize('tweet1') + Localize(this.score).toUpperCase() + '", ' + this.points + ' Kcal ' + Localize('tweet2');
   a.setAttribute('data-text', b);
   return a
 };
@@ -719,16 +722,16 @@ function GameManager(a, b, c, d) {
   this.inputManager.on('keepPlaying', this.keepPlaying.bind(this));
   this.setup()
 }
-function Aura(a) {
+function kcal(a) {
   var b = [
-    undefined,
-    undefined,
+    ,
+    ,
     200,
-    undefined,
+    ,
     250,
-    undefined,
-    undefined,
-    undefined,
+    ,
+    ,
+    ,
     320
   ];
   b[16] = 400;
@@ -826,7 +829,7 @@ GameManager.prototype.fillLegend = function () {
     f.appendChild(g);
     e.appendChild(f);
     d.appendChild(e);
-    h.textContent = Localize(c) + '  (' + Aura(c) + ' Aura)';
+    h.textContent = Localize(c) + '  (' + kcal(c) + ' Kcal)';
     d.appendChild(h);
     a[0].appendChild(d)
   }
@@ -898,7 +901,7 @@ GameManager.prototype.move = function (a) {
               x: a,
               y: f
             };
-            if (d === b.grid.cellContent(c)) {
+            if (d = b.grid.cellContent(c)) {
               f = b.findFarthestPosition(c, e);
               var h = b.grid.cellContent(f.next);
               if (h && h.value === d.value && !h.mergedFrom) {
@@ -910,7 +913,7 @@ GameManager.prototype.move = function (a) {
                 b.grid.insertTile(n);
                 b.grid.removeTile(d);
                 d.updatePosition(f.next);
-                b.points += 2 * Aura(d.value);
+                b.points += 2 * kcal(d.value);
                 n.value >
                 b.score &&
                 (b.score = n.value);
@@ -985,7 +988,7 @@ GameManager.prototype.movesAvailable = function () {
     this.tileMatchesAvailable()
 };
 GameManager.prototype.tileMatchesAvailable = function () {
-  for (var a, b = 0; b < this.size; b++) for (var c = 0; c < this.size; c++) if (a === this.grid.cellContent({
+  for (var a, b = 0; b < this.size; b++) for (var c = 0; c < this.size; c++) if (a = this.grid.cellContent({
     x: b,
     y: c
   })) for (var d = 0; 4 > d; d++) {
