@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>2048 Playboi Carti</title>
+
+  <link rel="apple-touch-icon" href="/meta/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel='shortcut icon' type='image/x-icon' href="/favicon.ico">
+
+  <link rel="stylesheet" href="/css/game.css">
+
+</head>
+<body>
+<div class="top-bar">
+  <nav>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/game.html">Game</a></li>
+      <li><a href="/groceries.html">Groceries</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="container">
+  <div class="heading">
+    <div class="title-container">
+      <h1 class="title">2048 Carti</h1>
+    </div>
+    <div class="scores-container">
+      <div class="score-points">0</div>
+      <div class="best-points">0</div>
+    </div>
+    <div class="scores-container">
+      <div class="score-container">0 Aura</div>
+      <div class="best-container">0 Aura</div>
+    </div>
+  </div>
+  <div class="above-game">
+    <p class="game-intro">Join the <strong>Carti!</strong></p>
+    <a href="javascript:void(0)" class="restart-button">Play Again</a>
+  </div>
+  <div class="game-container">
+    <div class="game-message">
+      <p></p>
+      <div class="lower">
+        <a class="keep-playing-button">Keep going</a>
+        <a class="retry-button">Retry</a>
+        <div class="score-sharing"></div>
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+      </div>
+      <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+      </div>
+      <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+      </div>
+      <div class="grid-row">
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+        <div class="grid-cell"></div>
+      </div>
+    </div>
+    <div class="tile-container">
+    </div>
+  </div>
+
+  <p class="game-explanation">
+    <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same symbol touch, they <strong>get promoted!</strong>
+  </p>
+
+  <hr>
+  <p class="tile-legend"><strong class="important">Tile Legend:</strong></p>
+
+  <hr>
+  <p class="disclaimer" style="text-align:center;">Game For My Boy</p>
+  <hr>
+
+</div>
+
+<script src="/js/game.js"></script>
+
+</body>
+</html>
